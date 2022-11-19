@@ -1,0 +1,22 @@
+<div class="col-md-6 offset-md-3 container">
+<h3>Add Movie</h3>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Movie ID</label>
+        <input type="text" class="form-control" id="id"
+       [(ngModel)]="movie.id" name="id">
+    </div><br>
+    <div class="form-group">
+        <label>Movie Name</label>
+        <input type="text" class="form-control" id="movieName"
+       [(ngModel)]="movie.movieName" name="movieName">
+    </div><br>
+    <div class="form-group">
+        <label>Movie Genre</label>
+        <input type="text" class="form-control" id="movieGenre"
+        [(ngModel)] = "movie.movieGenre" name="movieGenre">
+    </div><br>
+
+    <button class="btn btn-success" (ngSubmit)="onSubmit()" type="submit">Submit</button>
+</form>
+</div>

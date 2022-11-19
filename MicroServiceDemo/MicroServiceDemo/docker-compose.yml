@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  mongodbservice:
+    image: mongo:latest
+    container_name: mongo-container
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 27017:27017
+
+  JWT-Practise:
+    image: usermovie
+    container_name: user-authentication-service
+    build: JWT-Practise/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 9091:9091
+    depends_on:
+      - mongodbservice
+
+  MovieRestAPI:
+    image: usermovie1
+    container_name: user-movie-service
+    build: MovieRestAPI/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8585:8585
+    depends_on:
+      - mongodbservice
